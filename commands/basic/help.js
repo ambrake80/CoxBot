@@ -117,19 +117,19 @@ module.exports = {
 
                 // Enhanced Info Page
                 pages.push({
-                    title: '✨ ALL IN ONE BOT',
+                    title: '✨ Cox Family Bot #2025',
                     description: [
-                        '### THE DISCORD OPERATING SYSTEM',
+                        '### Mai jos vei avea detalii despre ajutor',
                         '',
-                        '> The ultimate Discord bot for all your server needs',
+                        '> Vei avea mai jos niste informatiile utile',
                         '',
                         '**BOT STATISTICS**',
-                        `\`🧠\` **Version:** 1.2.2`,
-                        `\`🛠️\` **Total Commands:** ${totalCount}`,
-                        `\`⚙️\` **Commands Loaded:** ${totalCommandsLoaded}`,
+                        `\`🧠\` **Versiune:** 1.2.2`,
+                        `\`🛠️\` **Total Comenzi:** ${totalCount}`,
+                        `\`⚙️\` **Comenzi Utilizate:** ${totalCommandsLoaded}`,
                         `\`📌\` **Master Commands:** ${masterCount}`,
                         `\`📎\` **Sub Commands:** ${subCount}`,
-                        `\`💻\` **Prefix Commands:** ${Object.values(config.excessCommands).some(v => v) ? '`Enabled`' : '`Disabled`'}`,
+                        `\`💻\` **Prefix Comenzi:** ${Object.values(config.excessCommands).some(v => v) ? '`Enabled`' : '`Disabled`'}`,
                         '',
                     ].join('\n'),
                     author: { name: 'ALL IN ONE BOT • COMMAND CENTER' },
@@ -167,10 +167,10 @@ module.exports = {
                             `### ${category.toUpperCase()} COMMAND MODULE`,
                             '',
                             '**MODULE STATISTICS**',
-                            `\`📊\` **Total Commands:** ${totalNoOfCommands}`,
+                            `\`📊\` **Total Comenzi:** ${totalNoOfCommands}`,
                             `\`🔍\` **Master Commands:** ${commands.length}`,
                             `\`🔗\` **Integrated Subcommands:** ${totalSubcommands}`,
-                            `\`⌨️\` **Usage Type:** ${type === 'slash' ? '`Slash Commands`' : `\`Prefix: ${config.prefix}\``}`,
+                            `\`⌨️\` **Poti folosi:** ${type === 'slash' ? '`Slash Commands`' : `\`Prefix: ${config.prefix}\``}`,
                             ''
                         ].join('\n'),
                         commands: commandLines,
@@ -202,7 +202,7 @@ module.exports = {
                     .setAuthor({
                         name: page.author.name,
                         iconURL: BOT_ICON,
-                        url: "https://discord.gg/xQF9f9yUEM"
+                        url: "https://discord.gg/coxfam"
                     })
                     .setImage(helpBanner)
                     .setFooter({ text: `${FOOTER_TEXT} • Page ${currentPage + 1}/${currentSet.length}` })
@@ -249,7 +249,7 @@ module.exports = {
                 const row1 = new ActionRowBuilder().addComponents(
                     new StringSelectMenuBuilder()
                         .setCustomId('pageSelect')
-                        .setPlaceholder('📋 Select a category...')
+                        .setPlaceholder('📋 Selecteaza o categorie...')
                         .addOptions(currentSet.map((page, i) => {
                             return {
                                 label: page.title.replace(/^[^\w\s]\s*/, ''), 
@@ -263,14 +263,14 @@ module.exports = {
               
                 const row2 = new ActionRowBuilder().addComponents(
                     new ButtonBuilder()
-                        .setCustomId('previous')
-                        .setLabel('Previous')
+                        .setCustomId('inapoi')
+                        .setLabel('Inapoi')
                         .setEmoji('⬅️')
                         .setStyle(ButtonStyle.Secondary)
                         .setDisabled(currentPage === 0),
                     new ButtonBuilder()
-                        .setCustomId('next')
-                        .setLabel('Next')
+                        .setCustomId('Inainte')
+                        .setLabel('Inainte')
                         .setEmoji('➡️')
                         .setStyle(ButtonStyle.Secondary)
                         .setDisabled(currentPage === currentSet.length - 1),
@@ -365,7 +365,7 @@ module.exports = {
                     
                     interaction.editReply({ 
                         components: disabledComponents,
-                        content: "⏱️ Help command session expired. Use `/help` again to restart."
+                        content: "⏱️ Comanda de `/help` a expirat, te rog sa folosesti din nou comanda."
                     }).catch((error) => {
                         console.error('Failed to update expired components:', error);
                     });
